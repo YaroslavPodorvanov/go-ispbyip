@@ -1,8 +1,3 @@
-# ISP by IP [![Build Status](https://travis-ci.org/YaroslavPodorvanov/go-ispbyip.svg?branch=master)](https://travis-ci.org/YaroslavPodorvanov/go-ispbyip)
-Lookup ISP by IP
-
-### Examples
-```golang
 package test
 
 import (
@@ -63,4 +58,3 @@ func TestList_Lookup(t *testing.T) {
 	require.Equal(t, uint32(2), list.Lookup(net.ParseIP("1:2:3:4::1")))
 	require.Equal(t, uint32(0), list.Lookup(net.ParseIP("1:2:3:5::1")))
 }
-```
