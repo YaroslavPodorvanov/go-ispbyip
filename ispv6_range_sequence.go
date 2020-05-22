@@ -2,6 +2,7 @@ package ispbyip
 
 import "sort"
 
+// stay duplicated
 func RangeSequenceByISPv6CIDRs(ispcidrs []Input) []ISPv6Range {
 	length := len(ispcidrs)
 
@@ -32,20 +33,5 @@ func RangeSequenceByISPv6CIDRs(ispcidrs []Input) []ISPv6Range {
 	// O(N*ln(N))
 	sort.Sort(ISPv6RangeSort(all))
 
-	unique := all[:1]
-
-	current := all[0]
-
-	// O(N)
-	for i := 1; i < length; i++ {
-		next := all[i]
-
-		if IPv6Less(current.Last, next.Last) {
-			unique = append(unique, next)
-
-			current = next
-		}
-	}
-
-	return unique
+	return all
 }

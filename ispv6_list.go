@@ -22,6 +22,12 @@ func (l *ISPv6List) Lookup(ip IPv6) uint32 {
 	return ispv6Lookup(ranges, ip)
 }
 
+func (l *ISPv6List) MultiLookup(ip IPv6) []uint32 {
+	var ranges = l.data.Load().([]ISPv6Range)
+
+	return ispv6MultiLookup(ranges, ip)
+}
+
 func (l *ISPv6List) Update(ranges []ISPv6Range) {
 	l.update(ranges)
 }

@@ -20,16 +20,15 @@ func (c ISPv4RangeSort) Less(i, j int) bool {
 	a := c[i]
 	b := c[j]
 
-	if a.First < b.First {
+	if a.Last < b.Last {
 		return true
 	}
 
-	if a.First > b.First {
+	if a.Last > b.Last {
 		return false
 	}
 
-	// 0 to 127, before 0 to 15
-	return a.Last > b.Last
+	return a.First < b.First
 }
 
 func (c ISPv4RangeSort) Swap(i, j int) {

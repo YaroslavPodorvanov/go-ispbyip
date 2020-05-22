@@ -22,16 +22,15 @@ func (c ISPv6RangeSort) Less(i, j int) bool {
 	a := c[i]
 	b := c[j]
 
-	if IPv6Less(a.First, b.First) {
+	if IPv6Less(a.Last, b.Last) {
 		return true
 	}
 
-	if IPv6Less(b.First, a.First) {
+	if IPv6Less(b.Last, a.Last) {
 		return false
 	}
 
-	// 0 to 127, before 0 to 15
-	return IPv6Less(b.Last, a.Last)
+	return IPv6Less(a.First, b.First)
 }
 
 func (c ISPv6RangeSort) Swap(i, j int) {

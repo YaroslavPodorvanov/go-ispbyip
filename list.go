@@ -37,3 +37,27 @@ func (l *List) Lookup(ip net.IP) uint32 {
 
 	return 0
 }
+
+func (l *List) MultiLookup(ip net.IP) []uint32 {
+	{
+		var ISPv4 = ip.To4()
+
+		if ISPv4 != nil {
+			return l.ispv4.MultiLookup(binary.BigEndian.Uint32(ISPv4))
+		}
+	}
+
+	// just in case condition
+	{
+		var ISPv6 = ip.To16()
+
+		if ISPv6 != nil {
+			return l.ispv6.MultiLookup(IPv6{
+				binary.BigEndian.Uint64(ISPv6[:8]),
+				binary.BigEndian.Uint64(ISPv6[8:]),
+			})
+		}
+	}
+
+	return nil
+}

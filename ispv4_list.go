@@ -20,6 +20,12 @@ func (l *ISPv4List) Lookup(ip uint32) uint32 {
 	return ispv4Lookup(ranges, ip)
 }
 
+func (l *ISPv4List) MultiLookup(ip uint32) []uint32 {
+	var ranges = l.data.Load().([]ISPv4Range)
+
+	return ispv4MultiLookup(ranges, ip)
+}
+
 func (l *ISPv4List) Update(ranges []ISPv4Range) {
 	l.update(ranges)
 }
