@@ -1,10 +1,12 @@
 package test
 
 import (
-	"github.com/YaroslavPodorvanov/go-ispbyip"
-	"github.com/stretchr/testify/require"
 	"net"
 	"testing"
+
+	"github.com/YaroslavPodorvanov/go-ispbyip"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestISPv4List_Lookup(t *testing.T) {

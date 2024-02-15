@@ -1,9 +1,10 @@
 package ispbyip
 
 import (
-	"github.com/stretchr/testify/require"
 	"sort"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestISPv4Lookup(t *testing.T) {

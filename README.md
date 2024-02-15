@@ -1,4 +1,4 @@
-# ISP by IP [![Build Status](https://travis-ci.org/YaroslavPodorvanov/go-ispbyip.svg?branch=master)](https://travis-ci.org/YaroslavPodorvanov/go-ispbyip)
+# ISP by IP
 Lookup ISP by IP
 
 ### Examples
@@ -6,10 +6,12 @@ Lookup ISP by IP
 package test
 
 import (
-	"github.com/YaroslavPodorvanov/go-ispbyip"
-	"github.com/stretchr/testify/require"
 	"net"
 	"testing"
+	
+	"github.com/YaroslavPodorvanov/go-ispbyip"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestISPv4List_Lookup(t *testing.T) {
